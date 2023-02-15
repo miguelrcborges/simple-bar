@@ -1,6 +1,6 @@
 CC = gcc
 CXXC = g++
-OUTPUT = bin/my_bar
+OUTPUT = bin/sbar
 WARNINGS = -Wall -Wextra -Wwrite-strings
 LINKS = -lX11
 CFLAGS = -march=native -O2 -ftree-vectorize -fno-semantic-interposition -fno-plt -pipe -s -flto \
@@ -29,3 +29,13 @@ run: $(OUTPUT)
 debug: bin/debug
 bin/debug: src/*.c
 	$(CC) $^ -o $@ $(DEBUG)
+
+clean:
+	rm bin/* obj/*
+
+install: $(OUTPUT)
+	cp $(OUTPUT) /usr/bin/sbar
+
+uninstall:
+	rm -f /usr/bin/sbar
+
