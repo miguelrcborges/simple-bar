@@ -13,9 +13,9 @@ int main(void) {
   }
 
   while (true) {
-    output = fg("1e1e2e") + gap + bg("cba6f7") + ' ' + cpu_temp() + ' ' + gap + bg("f38ba8") + ' ' + ram() +  ' ' + gap + bg("74c7ec") + ' ' + time() + ' ' + gap;
+    output = fg("282828") + gap + bg("e78a4e") + ' ' + cpu_temp() + ' ' + gap + bg("a9b665") + ' ' + ram() +  ' ' + gap + bg("7daea3") + ' ' + time() + ' ' + gap;
     if (XStoreName(disp, DefaultRootWindow(disp), output.c_str()) < 0) {
-      std::cout << "Failed to allocate memory";
+      std::cout << "Failed to allocate memory\n";
       return -1;
     } else {
       XFlush(disp);

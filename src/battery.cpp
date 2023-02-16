@@ -1,4 +1,5 @@
-#include "functions.h"
+#include <fstream>
+#include <sstream>
 
 std::string battery() {
 	std::ifstream file("/sys/class/power_supply/BATT/capacity");

@@ -17,14 +17,14 @@ std::string ram() {
 
   used_ram = total_ram - available_ram;
   used_ram /= 1024;
-  total_ram /= 1'024'000;
+  total_ram /= 1024 * 1024;
 
   output << "RAM: " << std::setprecision(1) << std::fixed;
 
   if (used_ram < 1000)
     output << used_ram << "M/";
   else {
-    used_ram /= 1000;
+    used_ram /= 1024;
     output << used_ram << "G/";
   }
 
