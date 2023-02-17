@@ -10,10 +10,10 @@ int main(void) {
 	if (!(disp = XOpenDisplay(NULL))) {
 		std::cout << "Failed to open display.\n";
 		return 0;
-  }
+	}
 
-  while (true) {
-    output = fg("282828");
+	while (true) {
+  	output = fg("282828");
 		output += bg("e78a4e");
 		output += ' ' + cpu_temp() + ' ' + gap + bg("a9b665") + ' ' + ram() +  ' ' + gap + bg("7daea3") + ' ' + time() + ' ' + gap;
 		if (XStoreName(disp, DefaultRootWindow(disp), output.c_str()) < 0) {
