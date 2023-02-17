@@ -11,7 +11,13 @@ CSRC = $(wildcard src/*.c)
 CXXSRC = $(wildcard src/*.cpp)
 OBJ = $(patsubst src/%.c, obj/%.o, $(CSRC))
 OBJ := $(OBJ) $(patsubst src/%.cpp, obj/%.o, $(CXXSRC))
+BINDIR = bin
 
+.PHONY = install uninstall debug build
+
+build : $(BINDIR) $(OUTPUT)
+$(BINDIR):
+	mkdir bin
 
 $(OUTPUT): $(OBJ)
 	$(CXXC) $^ -o $@ $(CFLAGS)
@@ -33,8 +39,8 @@ bin/debug: src/*.c
 clean:
 	rm bin/* obj/*
 
-install: $(OUTPUT)
-	cp $(OUTPUT) /usr/bin/sbar
+install: build
+	install -D -m755 $(OUTPUT) /usr/bin/sbar
 
 uninstall:
 	rm -f /usr/bin/sbar
