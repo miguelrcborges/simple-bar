@@ -17,8 +17,12 @@ OBJDIR = obj
 .PHONY = install uninstall debug build
 
 build : $(BINDIR) $(OBJDIR) $(OUTPUT)
+
 $(BINDIR):
 	mkdir bin
+
+$(OBJDIR):
+	mkdir obj
 
 $(OUTPUT): $(OBJ)
 	$(CXXC) $^ -o $@ $(CFLAGS)
