@@ -12,10 +12,11 @@ CXXSRC = $(wildcard src/*.cpp)
 OBJ = $(patsubst src/%.c, obj/%.o, $(CSRC))
 OBJ := $(OBJ) $(patsubst src/%.cpp, obj/%.o, $(CXXSRC))
 BINDIR = bin
+OBJDIR = obj
 
 .PHONY = install uninstall debug build
 
-build : $(BINDIR) $(OUTPUT)
+build : $(BINDIR) $(OBJDIR) $(OUTPUT)
 $(BINDIR):
 	mkdir bin
 
@@ -32,7 +33,7 @@ run: $(OUTPUT)
 	bin/my_bar
 
 
-debug: bin/debug
+debug: $(BINDIR) bin/debug
 bin/debug: src/*.c
 	$(CC) $^ -o $@ $(DEBUG)
 
