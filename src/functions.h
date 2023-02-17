@@ -4,8 +4,8 @@
 #include <string>
 
 #define gap "^f10^"
-#define fg(color) "^c#color^"
-#define bg(color) "^b#color^"
+#define fg(color) "^c#" color "^"
+#define bg(color) "^b#" color "^"
 
 std::string time();
 std::string battery();
