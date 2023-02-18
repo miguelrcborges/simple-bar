@@ -15,7 +15,7 @@ int main(void) {
 	while (true) {
 		output = fg("282828");
 		output += bg("e78a4e");
-		output += ' ' + cpu_temp() + ' ' + gap + bg("a9b665") + ' ' + ram() +  ' ' + gap + bg("7daea3") + ' ' + time() + ' ' + gap;
+		output += ' ' + cpu_temp() + ' ' + gap + bg("a9b665") + ' ' + ram() +  ' ' + gap + bg("7daea3") + ' ' + time_min() + ' ' + gap;
 		if (XStoreName(disp, DefaultRootWindow(disp), output.c_str()) < 0) {
 			std::cout << "Failed to allocate memory\n";
 			return -1;
