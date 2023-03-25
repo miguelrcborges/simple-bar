@@ -1,17 +1,21 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <string>
+/* style.c */
+int fg(char *buf, const char *color);
+int bg(char *buf, const char *color);
+int gap(char *buf);
 
-#define gap "^f10^"
-#define fg(color) "^c#" color "^"
-#define bg(color) "^b#" color "^"
+/* cpu.c */
+int cpu_temp(char *buf, const char *file);
 
-std::string time_min();
-std::string time_wdate();
-std::string battery();
-std::string ram();
-std::string ram_htoplike();
-std::string cpu_temp();
+/* ram.c */
+int ram(char *buf);
+
+/* time.c */
+int time_min(char *buf);
+
+/* battery.c */
+int battery(char *buf, const char *battery_file);
 
 #endif

@@ -8,9 +8,7 @@ CFLAGS = -march=native -O2 -ftree-vectorize -fno-semantic-interposition -fno-plt
 DEBUG = -g
 
 CSRC = $(wildcard src/*.c)
-CXXSRC = $(wildcard src/*.cpp)
 OBJ = $(patsubst src/%.c, obj/%.o, $(CSRC))
-OBJ := $(OBJ) $(patsubst src/%.cpp, obj/%.o, $(CXXSRC))
 BINDIR = bin
 OBJDIR = obj
 
@@ -25,13 +23,10 @@ $(OBJDIR):
 	mkdir obj
 
 $(OUTPUT): $(OBJ)
-	$(CXXC) $^ -o $@ $(CFLAGS)
+	$(CC) $^ -o $@ $(CFLAGS)
 
 obj/%.o: src/%.c
 	$(CC) $^ -c -o $@ $(CFLAGS)
-
-obj/%.o: src/%.cpp
-	$(CXXC) $^ -c -o $@ $(CFLAGS)
 
 run: $(OUTPUT)
 	bin/my_bar
