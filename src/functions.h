@@ -15,6 +15,7 @@ int ram_htoplike(char *buf);
 
 /* time.c */
 int time_min(char *buf);
+int time_min_12(char *buf);
 
 /* battery.c */
 int battery(char *buf, const char *battery_file);
