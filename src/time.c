@@ -14,13 +14,13 @@ int time_min_12(char *buf) {
 	time_t now = time(NULL);
 	struct tm *now_tm = localtime(&now);
 
+	hour = now_tm->tm_hour;
 	if (now_tm->tm_hour >= 12) {
 		half = "PM";
-		hour = now_tm->tm_hour - 12;
+		if (now_tm->tm_hour != 12) hour -= 12;
 	} else {
 		half = "AM";
 		if (now_tm->tm_hour == 0) hour = 12;
-		else hour = now_tm->tm_hour;
 	}
 
 
