@@ -1,7 +1,7 @@
 CC = gcc
 CXXC = g++
 OUTPUT = bin/sbar
-WARNINGS = -Wall -Wextra -Wwrite-strings
+WARNINGS = -Wall -Wextra -Wwrite-strings -Wno-unused-result
 LINKS = -lX11
 CFLAGS = -march=native -O2 -ftree-vectorize -fno-semantic-interposition -fno-plt -pipe -s -flto \
 				 $(LINKS) $(WARNINGS) -D_FORTIFY_SOURCE=1

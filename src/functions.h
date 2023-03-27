@@ -11,6 +11,7 @@ int cpu_temp(char *buf, const char *file);
 
 /* ram.c */
 int ram(char *buf);
+int ram_htoplike(char *buf);
 
 /* time.c */
 int time_min(char *buf);
