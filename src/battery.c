@@ -12,5 +12,5 @@ int battery(char *buf, const char *file_name) {
 	fgets(read_buf, 4, file);
 	fclose(file);
 
-	return sprintf(buf, " %d%%", atoi(read_buf));
+	return sprintf(buf, " %d%% ", atoi(read_buf));
 }
