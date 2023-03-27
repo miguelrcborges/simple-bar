@@ -4,7 +4,7 @@
 
 #include "functions.h"
 
-static const char *temperature_file = "/sys/class/thermal/thermal_zone1/temp";
+static const char *temperature_file = "/sys/class/thermal/thermal_zone2/temp";
 
 int main(void) {
 	char buf[256];
@@ -23,7 +23,7 @@ int main(void) {
 		cursor += cpu_temp(buf + cursor, temperature_file);
 		cursor += gap(buf + cursor);
 		cursor += bg(buf + cursor, "a9b665");
-		cursor += ram_htoplike(buf + cursor);
+		cursor += ram(buf + cursor);
 		cursor += gap(buf + cursor);
 		cursor += bg(buf + cursor, "7daea3");
 		cursor += time_min(buf + cursor);
