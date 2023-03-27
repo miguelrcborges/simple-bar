@@ -37,9 +37,9 @@ int ram_htoplike(char* buf) {
 	total /= 1024 * 1024;
 	
 	if (used < 1000)
-		return sprintf(buf, "%.2fM/%.2fG", used, total);
+		return sprintf(buf, "%.1fM/%.1fG", used, total);
 	else
-		return sprintf(buf, "%.2fG/%.2fG", used/1024, total);
+		return sprintf(buf, "%.1fG/%.1fG", used/1024, total);
 
     fclose(file);
 }
