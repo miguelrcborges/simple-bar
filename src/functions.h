@@ -20,4 +20,7 @@ int time_min_12(char *buf);
 /* battery.c */
 int battery(char *buf, const char *battery_file);
 
+/* customcommand.c */
+int command(char *buf, const char *command);
+
 #endif

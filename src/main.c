@@ -19,7 +19,6 @@ int main(void) {
 	while (1) {
 		cursor += fg(buf, "282828");
 		cursor += bg(buf + cursor, "e78a4e");
-		cursor += gap(buf + cursor);
 		cursor += cpu_temp(buf + cursor, temperature_file);
 		cursor += gap(buf + cursor);
 		cursor += bg(buf + cursor, "a9b665");
