@@ -22,7 +22,7 @@ int main(void) {
 		cursor += cpu_temp(buf + cursor, temperature_file);
 		cursor += gap(buf + cursor);
 		cursor += bg(buf + cursor, "a9b665");
-		cursor += ram(buf + cursor);
+		cursor += ram_htoplike(buf + cursor);
 		cursor += gap(buf + cursor);
 		cursor += bg(buf + cursor, "7daea3");
 		cursor += time_min(buf + cursor);
