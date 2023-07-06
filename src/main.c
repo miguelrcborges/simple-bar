@@ -39,7 +39,7 @@ int main(void) {
 			XFlush(disp);
 		}
 		cursor = 0;
-		sleep(1);
+		sleep(5);
 	}
 
 	close(cpu_temp_fd);
