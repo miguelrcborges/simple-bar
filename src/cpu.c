@@ -1,16 +1,16 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 
-int cpu_temp(char *buf, const char *file_name) {
-	FILE *file = fopen(file_name, "r");
+int cpu_temp(char *buf, int fd) {
 	char read_buf[8];
 
-	if (file == NULL) {
+	if (fd == -1) {
 		return sprintf(buf, " FILE NOT FOUND ");
 	}
 
-	fgets(read_buf, 8, file);
-	fclose(file);
-	
+	read(fd, read_buf, 7);
+	lseek(fd, 0, SEEK_SET);
+
 	return sprintf(buf, " %d°C ", atoi(read_buf) / 1000);
 }

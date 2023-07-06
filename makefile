@@ -34,7 +34,7 @@ run: $(OUTPUT)
 
 debug: $(BINDIR) bin/debug
 bin/debug: src/*.c
-	$(CC) $^ -o $@ $(DEBUG)
+	$(CC) $^ -o $@ $(DEBUG) $(LINKS)
 
 clean:
 	rm bin/* obj/*

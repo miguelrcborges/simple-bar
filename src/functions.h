@@ -1,17 +1,19 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include <stdio.h>
+
 /* style.c */
 int fg(char *buf, const char *color);
 int bg(char *buf, const char *color);
 int gap(char *buf);
 
 /* cpu.c */
-int cpu_temp(char *buf, const char *file);
+int cpu_temp(char *buf, int fd);
 
 /* ram.c */
 int ram(char *buf);
-int ram_htoplike(char *buf);
+int ram_htoplike(char *buf, FILE *ram_file);
 
 /* time.c */
 int time_min(char *buf);

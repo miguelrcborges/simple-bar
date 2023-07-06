@@ -20,8 +20,9 @@ int ram(char *buf) {
 	return sprintf(buf, " %.1fG/%.1fG ", used_ram, total_ram);
 }
 
-int ram_htoplike(char* buf) {
-	FILE* file = fopen("/proc/meminfo", "r");
+int ram_htoplike(char* buf, FILE *file) {
+	fflush(file);
+	rewind(file);
 
 	double total, free, used, buffered, cached;
 
@@ -36,7 +37,6 @@ int ram_htoplike(char* buf) {
 	used /= 1024;
 	total /= 1024 * 1024;
 
-	fclose(file);
 	
 	if (used < 1000)
 		return sprintf(buf, " %.1fM/%.1fG ", used, total);

@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int battery(char *buf, const char *file_name) {
-	FILE *file = fopen(file_name, "r");
+int battery(char *buf, int fd) {
 	char read_buf[4];
 
-	if (file == NULL) {
+	if (fd == -1) {
 		return sprintf(buf, " BATTERY FILE NOT FOUND ");
 	}
 
-	fgets(read_buf, 4, file);
-	fclose(file);
+	read(fd, read_buf, 3);
+	lseek(fd, 0, SEEK_SET);
 
 	return sprintf(buf, " %d%% ", atoi(read_buf));
 }
